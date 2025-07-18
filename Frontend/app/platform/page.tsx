@@ -110,7 +110,7 @@ export default function PlatformPage() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-background/80 border-b">
         <div className="container mx-auto px-4 py-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 ml-8">
+        <Link href="/" className="flex items-center space-x-2 ml-8">
             <Image src="/lunoa-logo.svg" alt="Lunoa" width={120} height={120} className="w-30 h-30" />
           </Link>
           <div className="hidden md:flex items-center space-x-8">

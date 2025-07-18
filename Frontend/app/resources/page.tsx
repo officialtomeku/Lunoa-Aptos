@@ -240,7 +240,8 @@ export default function ResourcesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="px-8">
                 Get API Access
-              </Button>
+              </Button>"
+              <a href="https://discord.gg/your-server" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 variant="outline"
@@ -248,6 +249,7 @@ export default function ResourcesPage() {
               >
                 Join Discord
               </Button>
+            </a>
             </div>
           </div>
         </div>
