@@ -2,7 +2,6 @@
 
 import type React from "react"
 
-import { Scene } from "@/components/ui/hero-section"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
@@ -25,6 +24,9 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import dynamic from "next/dynamic"
+// 3-D scene requires the browser (three.js).  Disable SSR to avoid build-time crashes.
+const Scene = dynamic(() => import("@/components/ui/hero-section").then((m) => m.Scene), { ssr: false })
 
 const features = [
   {
@@ -147,10 +149,12 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
-              Sign In
+            <Button asChild variant="ghost" size="sm">
+              <Link href="https://app.lunoa.io">Sign In</Link>
             </Button>
-            <Button size="sm">Get Started</Button>
+            <Button asChild size="sm">
+              <Link href="https://app.lunoa.io/signup">Get Started</Link>
+            </Button>
           </div>
         </div>
       </nav>
@@ -178,11 +182,17 @@ export default function Home() {
                 immersive, quest-driven adventure where culture is co-created and every action is rewarded.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <Button className="text-sm px-8 py-3 rounded-xl bg-white text-black border border-white/10 shadow-none hover:bg-white/90 transition-none">
-                  Launch App
+                <Button
+                  asChild
+                  className="text-sm px-8 py-3 rounded-xl bg-white text-black border border-white/10 shadow-none hover:bg-white/90 transition-none"
+                >
+                  <Link href="https://app.lunoa.io/signup">Launch App</Link>
                 </Button>
-                <Button className="text-sm px-8 py-3 rounded-xl bg-transparent text-white border border-white/20 shadow-none hover:bg-white/10 transition-none">
-                  Read Whitepaper
+                <Button
+                  asChild
+                  className="text-sm px-8 py-3 rounded-xl bg-transparent text-white border border-white/20 shadow-none hover:bg-white/10 transition-none"
+                >
+                  <Link href="/resources">Read Whitepaper</Link>
                 </Button>
               </div>
             </div>
