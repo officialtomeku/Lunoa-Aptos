@@ -95,10 +95,10 @@ export function DashboardHeader() {
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
                   <p className="text-sm font-medium leading-none">
-                    {user.username || `User_${user.walletAddress.slice(-4)}`}
+                    {user.username || `User_${user.walletAddress?.slice(-4) || 'Unknown'}`}
                   </p>
                   <p className="text-xs leading-none text-muted-foreground">
-                    {user.walletAddress.slice(0, 10)}...{user.walletAddress.slice(-6)}
+                    {user.walletAddress ? `${user.walletAddress.slice(0, 10)}...${user.walletAddress.slice(-6)}` : 'No wallet connected'}
                   </p>
                 </div>
               </DropdownMenuLabel>

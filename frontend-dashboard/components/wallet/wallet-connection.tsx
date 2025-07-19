@@ -273,30 +273,58 @@ function WalletList({
 
   return (
     <div className="space-y-3">
-      {wallets.map((wallet) => (
-        <Button
-          key={wallet.name}
-          variant="outline"
-          className="w-full h-auto p-4 flex items-center justify-start gap-3"
-          onClick={() => onConnect(wallet.name)}
-          disabled={connecting}
-        >
-          <img 
-            src={wallet.icon} 
-            alt={wallet.name} 
-            className="w-8 h-8 rounded"
-          />
-          <div className="text-left">
-            <div className="font-medium">{wallet.name}</div>
-            <div className="text-sm text-muted-foreground">
-              {wallet.name === 'Petra' ? 'Most popular Aptos wallet' : 
-               wallet.name === 'Martian' ? 'Advanced features and tools' : 
-               'Secure wallet for Aptos'}
+      {(wallets || []).length > 0 ? (
+        (wallets || []).map((wallet) => (
+          <Button
+            key={wallet.name}
+            variant="outline"
+            className="w-full h-auto p-4 flex items-center justify-start gap-3"
+            onClick={() => onConnect(wallet.name)}
+            disabled={connecting}
+          >
+            <img 
+              src={wallet.icon} 
+              alt={wallet.name} 
+              className="w-8 h-8 rounded"
+            />
+            <div className="text-left">
+              <div className="font-medium">{wallet.name}</div>
+              <div className="text-sm text-muted-foreground">
+                {wallet.name === 'Petra' ? 'Most popular Aptos wallet' : 
+                 wallet.name === 'Martian' ? 'Advanced features and tools' : 
+                 'Secure wallet for Aptos'}
+              </div>
             </div>
+            {connecting && <Loader2 className="h-4 w-4 ml-auto animate-spin" />}
+          </Button>
+        ))
+      ) : (
+        <div className="text-center py-8">
+          <Wallet className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+          <h3 className="text-lg font-medium mb-2">No Wallets Detected</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Please install a compatible Aptos wallet to continue.
+          </p>
+          <div className="space-y-2">
+            <Button 
+              variant="outline" 
+              className="w-full"
+              onClick={() => window.open('https://petra.app/', '_blank')}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Install Petra Wallet
+            </Button>
+            <Button 
+              variant="outline" 
+              className="w-full"
+              onClick={() => window.open('https://martianwallet.xyz/', '_blank')}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Install Martian Wallet
+            </Button>
           </div>
-          {connecting && <Loader2 className="h-4 w-4 ml-auto animate-spin" />}
-        </Button>
-      ))}
+        </div>
+      )}
       
       <div className="text-center text-sm text-muted-foreground mt-4">
         Don't have a wallet? Download{' '}

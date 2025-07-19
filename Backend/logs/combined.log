@@ -1659,3 +1659,94 @@
 {"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T00:38:07.444Z"}
 {"level":"info","message":"Server is running at http://localhost:3000","timestamp":"2025-07-18T00:38:07.444Z"}
 {"level":"info","message":"User profile updated for user ID: 1","timestamp":"2025-07-18T01:05:29.703Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T19:04:19.671Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:04:20.688Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T19:04:20.689Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T19:04:20.690Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T19:06:03.643Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:06:05.508Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T19:06:05.509Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T19:06:05.510Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T19:07:37.136Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:07:38.811Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T19:07:38.812Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T19:07:38.812Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:09:25.797Z"}
+{"code":"42703","file":"parse_target.c","length":127,"level":"error","line":"1065","message":"Error during user registration: column \"full_name\" of relation \"users\" does not exist","name":"error","position":"42","routine":"checkInsertTargets","severity":"ERROR","stack":"error: column \"full_name\" of relation \"users\" does not exist\n    at C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\pg-pool\\index.js:45:11\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-07-18T19:09:26.026Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:11:51.877Z"}
+{"level":"info","message":"Running migration: 001_add_user_profile_fields.sql","timestamp":"2025-07-18T19:11:53.501Z"}
+{"level":"info","message":"Migration completed: 001_add_user_profile_fields.sql","timestamp":"2025-07-18T19:11:54.893Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:12:03.350Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:15:06.513Z"}
+{"level":"info","message":"New user registered: tadashijei@gmail.com","timestamp":"2025-07-18T19:15:06.740Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T19:16:50.171Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:16:50.595Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T19:16:50.596Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T19:16:50.596Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T19:47:33.549Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:47:34.058Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T19:47:34.059Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T19:47:34.060Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T19:50:40.167Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:50:40.541Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T19:50:40.542Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T19:50:40.542Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T19:51:22.932Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T19:51:23.257Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T19:51:23.257Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T19:51:23.258Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T20:01:27.994Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:01:28.391Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T20:01:28.392Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T20:01:28.393Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T20:02:02.243Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:02:02.730Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T20:02:02.730Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T20:02:02.731Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T20:23:48.415Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:23:49.569Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T20:23:49.570Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T20:23:49.571Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T20:27:20.882Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:27:21.607Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T20:27:21.607Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T20:27:21.608Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T20:45:48.233Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:45:48.762Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T20:45:48.763Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T20:45:48.763Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-18T20:49:45.318Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:49:45.887Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-18T20:49:45.888Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-18T20:49:45.889Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:49:56.918Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:50:25.630Z"}
+{"level":"info","message":"New user registered: admin2@tomeku.com","timestamp":"2025-07-18T20:50:25.861Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:50:50.176Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:54:25.225Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-18T20:58:33.925Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-19T11:41:41.820Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T11:41:42.422Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-19T11:41:42.423Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-19T11:41:42.423Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T11:42:21.368Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T12:38:15.256Z"}
+{"level":"info","message":"Aptos Service Account Address: 0x203d14b4b0b5ffe3e5befa82aea08350df16c88561402f4ecefa37f4920eda7f","timestamp":"2025-07-19T13:49:46.931Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T13:49:47.455Z"}
+{"level":"info","message":"Database connection test successful.","timestamp":"2025-07-19T13:49:47.456Z"}
+{"level":"info","message":"Server is running at http://localhost:3001","timestamp":"2025-07-19T13:49:47.456Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T14:46:41.555Z"}
+{"level":"info","message":"New user registered: qjjjbartolome@tip.edu.ph","timestamp":"2025-07-19T14:46:41.806Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T14:47:31.470Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T14:47:42.717Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T14:50:54.772Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T14:52:29.425Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T15:01:31.883Z"}
+{"expiredAt":"2025-07-19T15:01:41.000Z","level":"error","message":"Token verification failed: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\jsonwebtoken\\verify.js:190:21\n    at getSecret (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n    at Object.module.exports [as verify] (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n    at protect (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\src\\middleware\\auth.middleware.ts:21:25)\n    at Layer.handleRequest (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\router\\index.js:295:15","timestamp":"2025-07-19T15:04:45.410Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T15:20:27.516Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T15:21:49.227Z"}
+{"code":"23505","constraint":"users_username_key","detail":"Key (username)=(qjjjbartolome) already exists.","file":"nbtinsert.c","length":214,"level":"error","line":"666","message":"Error during user registration: duplicate key value violates unique constraint \"users_username_key\"","name":"error","routine":"_bt_check_unique","schema":"public","severity":"ERROR","stack":"error: duplicate key value violates unique constraint \"users_username_key\"\n    at C:\\Users\\Java\\Documents\\Lunoa-Hackathon\\Main\\backend\\node_modules\\pg-pool\\index.js:45:11\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)","table":"users","timestamp":"2025-07-19T15:21:49.417Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T15:22:26.231Z"}
+{"level":"info","message":"New user registered: Tadashijeiito@gmail.com","timestamp":"2025-07-19T15:22:26.398Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T15:22:54.096Z"}
+{"level":"info","message":"Connected to the database","timestamp":"2025-07-19T15:23:52.630Z"}

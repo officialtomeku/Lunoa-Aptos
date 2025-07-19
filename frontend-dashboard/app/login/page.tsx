@@ -45,19 +45,19 @@ export default function LoginPage() {
   // Sample testimonials for the right panel
   const testimonials = [
     {
-      avatarSrc: '/api/placeholder/40/40',
+      avatarSrc: 'Seal.png',
       name: 'Sarah Chen',
       handle: '@sarahc',
       text: 'Lunoa has transformed how I explore my city. Found amazing local quests!',
     },
     {
-      avatarSrc: '/api/placeholder/40/40',
+      avatarSrc: 'Seal.png',
       name: 'Alex Rodriguez',
       handle: '@alexr',
       text: 'The token rewards make every adventure worthwhile. Love this platform!',
     },
     {
-      avatarSrc: '/api/placeholder/40/40',
+      avatarSrc: 'Seal.png',
       name: 'Maya Patel',
       handle: '@mayap',
       text: 'Connected with so many like-minded explorers. The community is amazing!',

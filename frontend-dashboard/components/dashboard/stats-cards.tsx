@@ -94,7 +94,7 @@ export function DashboardStatsCards() {
   const personalStats = [
     {
       title: 'Your Reputation',
-      value: user.reputation.toLocaleString(),
+      value: (user.reputation || 0).toLocaleString(),
       change: 12.5,
       changeLabel: 'this month',
       icon: Star,
@@ -102,7 +102,7 @@ export function DashboardStatsCards() {
     },
     {
       title: 'Quests Completed',
-      value: user.questsCompleted,
+      value: user.questsCompleted || 0,
       change: 8.2,
       changeLabel: 'this month',
       icon: Trophy,
@@ -110,7 +110,7 @@ export function DashboardStatsCards() {
     },
     {
       title: 'Tokens Earned',
-      value: `${user.tokensEarned.toLocaleString()} $LUNOA`,
+      value: `${(user.tokensEarned || 0).toLocaleString()} $LUNOA`,
       change: 15.3,
       changeLabel: 'this month',
       icon: Coins,
@@ -118,7 +118,7 @@ export function DashboardStatsCards() {
     },
     {
       title: 'Available Balance',
-      value: tokenBalance ? `${tokenBalance.availableBalance.toFixed(2)} $LUNOA` : '0 $LUNOA',
+      value: tokenBalance?.availableBalance ? `${tokenBalance.availableBalance.toFixed(2)} $LUNOA` : '0 $LUNOA',
       change: 5.7,
       changeLabel: 'this week',
       icon: Activity,
@@ -129,7 +129,7 @@ export function DashboardStatsCards() {
   const platformStats = [
     {
       title: 'Total Users',
-      value: dashboardMetrics.totalUsers.toLocaleString(),
+      value: (dashboardMetrics.totalUsers || 0).toLocaleString(),
       change: 2.1,
       changeLabel: 'vs last month',
       icon: Users,
@@ -137,7 +137,7 @@ export function DashboardStatsCards() {
     },
     {
       title: 'Active Quests',
-      value: dashboardMetrics.totalQuests - dashboardMetrics.completedQuests,
+      value: (dashboardMetrics.totalQuests || 0) - (dashboardMetrics.completedQuests || 0),
       change: -1.2,
       changeLabel: 'vs last week',
       icon: Map,
@@ -145,7 +145,7 @@ export function DashboardStatsCards() {
     },
     {
       title: 'Completed Quests',
-      value: dashboardMetrics.completedQuests.toLocaleString(),
+      value: (dashboardMetrics.completedQuests || 0).toLocaleString(),
       change: 18.7,
       changeLabel: 'this month',
       icon: Trophy,

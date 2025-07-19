@@ -1,12 +1,15 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import apiClient, { authApi, dashboardAPI } from './api';
+import { WalletService, WalletType, ConnectedWallet, WalletConnectionResult } from './wallet';
 
 // Types for our store
 export interface User {
   id: string;
-  walletAddress: string;
+  walletAddress?: string;
   username?: string;
+  full_name?: string;
+  email?: string;
   avatar?: string;
   reputation: number;
   questsCompleted: number;
@@ -56,6 +59,10 @@ interface DashboardStore {
   unreadCount: number;
   tokenBalance: TokenBalance | null;
   
+  // Wallet state
+  connectedWallet: ConnectedWallet | null;
+  walletLoading: boolean;
+  
   // UI state
   sidebarOpen: boolean;
   loading: boolean;
@@ -71,6 +78,12 @@ interface DashboardStore {
   setSidebarOpen: (open: boolean) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
+  
+  // Wallet actions
+  setConnectedWallet: (wallet: ConnectedWallet | null) => void;
+  setWalletLoading: (loading: boolean) => void;
+  connectWallet: (walletType: WalletType) => Promise<void>;
+  disconnectWallet: () => Promise<void>;
   
   // Authentication actions
   login: (email: string, password: string, rememberMe: boolean) => Promise<void>;
@@ -99,6 +112,8 @@ export const useDashboardStore = create<DashboardStore>()(
       notifications: [],
       unreadCount: 0,
       tokenBalance: null,
+      connectedWallet: null,
+      walletLoading: false,
       sidebarOpen: true,
       loading: false,
       error: null,
@@ -113,6 +128,62 @@ export const useDashboardStore = create<DashboardStore>()(
       setSidebarOpen: (open) => set({ sidebarOpen: open }),
       setLoading: (loading) => set({ loading }),
       setError: (error) => set({ error }),
+      
+      // Wallet actions
+      setConnectedWallet: (wallet) => set({ connectedWallet: wallet }),
+      setWalletLoading: (loading) => set({ walletLoading: loading }),
+      
+      connectWallet: async (walletType: WalletType) => {
+        set({ walletLoading: true, error: null });
+        try {
+          const walletService = WalletService.getInstance();
+          const result: WalletConnectionResult = await walletService.connectWallet(walletType);
+          
+          if (result.success && result.wallet && result.user && result.accessToken) {
+            // Store auth data
+            localStorage.setItem('user', JSON.stringify(result.user));
+            localStorage.setItem('token', result.accessToken);
+            
+            // Update store state
+            set({ 
+              connectedWallet: result.wallet,
+              user: result.user,
+              isAuthenticated: true,
+              walletLoading: false
+            });
+          } else {
+            throw new Error(result.error || 'Failed to connect wallet');
+          }
+        } catch (error) {
+          console.error('Wallet connection failed:', error);
+          set({ 
+            error: error instanceof Error ? error.message : 'Failed to connect wallet',
+            walletLoading: false
+          });
+          throw error;
+        }
+      },
+      
+      disconnectWallet: async () => {
+        try {
+          const walletService = WalletService.getInstance();
+          await walletService.disconnect();
+          
+          // Clear auth data
+          localStorage.removeItem('user');
+          localStorage.removeItem('token');
+          
+          // Reset store state
+          set({ 
+            connectedWallet: null,
+            user: null,
+            isAuthenticated: false
+          });
+        } catch (error) {
+          console.error('Wallet disconnect failed:', error);
+          set({ error: error instanceof Error ? error.message : 'Failed to disconnect wallet' });
+        }
+      },
 
       // Authentication actions
       login: async (email: string, password: string, rememberMe: boolean = false) => {
@@ -200,24 +271,39 @@ export const useDashboardStore = create<DashboardStore>()(
           const storedUser = localStorage.getItem('user');
           const storedToken = localStorage.getItem('token');
           
-          if (storedUser && storedToken) {
-            const user = JSON.parse(storedUser);
-            
-            // Verify token is still valid
+          if (storedUser && storedToken && storedUser !== 'undefined') {
             try {
-              const profile = await authApi.getProfile();
-              set({ 
-                user: profile, 
-                isAuthenticated: true,
-                loading: false 
-              });
+              const user = JSON.parse(storedUser);
               
-              // Fetch initial data
-              get().fetchDashboardData();
-            } catch (error) {
-              // Token is invalid, clear storage
+              // Verify token is still valid
+              try {
+                const profile = await authApi.getProfile();
+                set({ 
+                  user: profile, 
+                  isAuthenticated: true,
+                  loading: false 
+                });
+                
+                // Fetch initial data
+                get().fetchDashboardData();
+              } catch (error) {
+                // Token is invalid, clear storage
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('rememberMe');
+                set({ 
+                  user: null, 
+                  isAuthenticated: false,
+                  loading: false 
+                });
+              }
+            } catch (parseError) {
+              // Invalid JSON in localStorage, clear it
+              console.error('Invalid JSON in localStorage:', parseError);
               localStorage.removeItem('user');
               localStorage.removeItem('token');
+              localStorage.removeItem('auth_token');
               localStorage.removeItem('rememberMe');
               set({ 
                 user: null, 
@@ -230,7 +316,15 @@ export const useDashboardStore = create<DashboardStore>()(
           }
         } catch (error) {
           console.error('Auth initialization error:', error);
-          set({ loading: false });
+          localStorage.removeItem('user');
+          localStorage.removeItem('token');
+          localStorage.removeItem('auth_token');
+          localStorage.removeItem('rememberMe');
+          set({ 
+            user: null, 
+            isAuthenticated: false,
+            loading: false 
+          });
         }
       },
 

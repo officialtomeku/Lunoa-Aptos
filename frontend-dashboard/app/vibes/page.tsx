@@ -245,7 +245,7 @@ export default function VibesPage() {
       description: metadata.description,
       type: media.type,
       creator: 'You',
-      avatar: '/api/placeholder/40/40',
+      avatar: 'Seal.png',
       location: metadata.location?.address || 'Unknown location',
       timestamp: 'Just now',
       media: media.data,

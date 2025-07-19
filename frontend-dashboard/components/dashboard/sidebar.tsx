@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { useDashboardStore } from '@/lib/store';
 import {
   Home,
@@ -60,10 +60,10 @@ function SidebarContent() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium truncate">
-                {user.username || `User_${user.walletAddress.slice(-4)}`}
+                {user.username || user.full_name || (user.walletAddress ? `User_${user.walletAddress.slice(-4)}` : 'User')}
               </p>
               <p className="text-xs text-muted-foreground truncate">
-                {user.walletAddress.slice(0, 6)}...{user.walletAddress.slice(-4)}
+                {user.walletAddress ? `${user.walletAddress.slice(0, 6)}...${user.walletAddress.slice(-4)}` : user.email || 'Email User'}
               </p>
             </div>
           </div>
@@ -120,22 +120,43 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Desktop Sidebar */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r bg-card">
+      {/* Desktop Sidebar - Collapsible */}
+      <div className={`hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col transition-all duration-300 ${
+        sidebarOpen ? 'lg:w-72' : 'lg:w-0'
+      }`}>
+        <div className={`flex grow flex-col gap-y-5 overflow-y-auto border-r bg-card transition-all duration-300 ${
+          sidebarOpen ? 'lg:w-72' : 'lg:w-0 lg:opacity-0'
+        }`}>
           <SidebarContent />
         </div>
       </div>
 
+      {/* Desktop Toggle Button */}
+      <Button 
+        variant="ghost" 
+        size="icon" 
+        className="hidden lg:flex fixed top-4 left-4 z-50 bg-background/80 backdrop-blur-sm border shadow-sm hover:bg-accent"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+      >
+        <Menu className="h-5 w-5" />
+        <span className="sr-only">Toggle sidebar</span>
+      </Button>
+
       {/* Mobile Sidebar */}
       <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
-        <SheetTrigger asChild className="lg:hidden">
-          <Button variant="ghost" size="icon" className="fixed top-4 left-4 z-40">
+        <SheetTrigger asChild>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="fixed top-4 left-4 z-50 lg:hidden bg-background/80 backdrop-blur-sm border shadow-sm hover:bg-accent"
+            onClick={() => setSidebarOpen(true)}
+          >
             <Menu className="h-5 w-5" />
             <span className="sr-only">Open sidebar</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0">
+          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <SidebarContent />
         </SheetContent>
       </Sheet>

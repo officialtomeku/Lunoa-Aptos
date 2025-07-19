@@ -72,19 +72,19 @@ export default function SignUpPageComponent() {
   // Sample testimonials for the right panel
   const testimonials = [
     {
-      avatarSrc: '/api/placeholder/40/40',
+      avatarSrc: 'Seal.png',
       name: 'Jamie Wilson',
       handle: '@jamiew',
       text: 'Just started my Lunoa journey and already discovered 3 hidden gems in my neighborhood!',
     },
     {
-      avatarSrc: '/api/placeholder/40/40',
+      avatarSrc: 'Seal.png',
       name: 'David Kim',
       handle: '@davidk',
       text: 'The quest system is addictive! Earned my first 100 tokens this week.',
     },
     {
-      avatarSrc: '/api/placeholder/40/40',
+      avatarSrc: 'Seal.png',
       name: 'Emma Thompson',
       handle: '@emmat',
       text: 'Love how Lunoa connects me with other adventurers. Made some great friends!',

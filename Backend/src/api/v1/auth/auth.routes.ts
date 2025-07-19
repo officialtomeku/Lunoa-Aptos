@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { register, login, getProfile, updateProfile, deleteProfile, connectWallet, verifyToken, refreshToken, logout } from './auth.controller';
 import { protect } from '../../../middleware/auth.middleware';
-import { verifyWalletSignature } from '../../../middleware/verifyWalletSignature';
+import walletRoutes from './wallet.routes';
 
 const router = Router();
 
@@ -141,7 +141,7 @@ router.post('/login', login);
  *       500:
  *         description: Internal server error.
  */
-router.post('/connect', verifyWalletSignature, connectWallet);
+// Wallet connection route moved to wallet.routes.ts
 
 /**
  * @swagger
@@ -276,5 +276,8 @@ router.route('/profile')
  *         description: Internal server error.
  */
 router.post('/logout', logout);
+
+// Wallet management routes
+router.use('/wallet', walletRoutes);
 
 export default router;

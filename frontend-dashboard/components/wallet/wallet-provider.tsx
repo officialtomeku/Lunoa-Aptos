@@ -1,58 +1,29 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-// Mock wallet context for now
-interface MockWalletContextType {
-  connected: boolean;
-  connecting: boolean;
-  account: any;
-  connect: () => Promise<void>;
-  disconnect: () => Promise<void>;
-}
-
-const MockWalletContext = createContext<MockWalletContextType>({
-  connected: false,
-  connecting: false,
-  account: null,
-  connect: async () => {},
-  disconnect: async () => {},
-});
-
-export const useWallet = () => useContext(MockWalletContext);
+import React from 'react';
+import { AptosWalletAdapterProvider } from '@aptos-labs/wallet-adapter-react';
+import { Network } from '@aptos-labs/ts-sdk';
 
 interface WalletProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export function WalletProvider({ children }: WalletProviderProps) {
-  const [connected, setConnected] = useState(false);
-  const [connecting, setConnecting] = useState(false);
-  const [account, setAccount] = useState<any>(null);
-
-  const connect = async () => {
-    setConnecting(true);
-    // Mock connection delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setConnected(true);
-    setAccount({ address: '0x1234...abcd' });
-    setConnecting(false);
-  };
-
-  const disconnect = async () => {
-    setConnected(false);
-    setAccount(null);
-  };
-
   return (
-    <MockWalletContext.Provider value={{
-      connected,
-      connecting,
-      account,
-      connect,
-      disconnect,
-    }}>
+    <AptosWalletAdapterProvider 
+      autoConnect={true}
+      dappConfig={{
+        network: Network.TESTNET,
+        aptosConnectDappId: 'lunoa-hackathon'
+      }}
+      onError={(error) => {
+        console.error('Wallet adapter error:', error);
+      }}
+    >
       {children}
-    </MockWalletContext.Provider>
+    </AptosWalletAdapterProvider>
   );
 }
+
+// Re-export the useWallet hook from the adapter
+export { useWallet } from '@aptos-labs/wallet-adapter-react';
